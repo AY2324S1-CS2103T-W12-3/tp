@@ -34,6 +34,9 @@ public class JobCard extends UiPart<Region> {
 
     /**
      * Creates a {@code JobCode} with the given {@code Job} and index to display.
+     *
+     * @param job The {@code Job} to display information for.
+     * @param displayedIndex The index of the job in the list to display.
      */
     public JobCard(Job job, int displayedIndex) {
         super(FXML);
