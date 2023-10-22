@@ -34,14 +34,14 @@ applications.
    open the help window.<br>
    Some example commands you can try:
 
-    * `list` : Lists all contacts.
+    * `add c/Google r/Software Engineer` : Adds a job application named `Google`
+      to JobFindr.
 
-    * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe`
-      to the Address Book.
+    * `list` : Lists all job applications.
 
-    * `delete 3` : Deletes the 3rd contact shown in the current list.
+    * `delete 3` : Deletes the 3rd job application shown in the current list.
 
-    * `clear` : Deletes all contacts.
+    * `clear` : Deletes all job applications.
 
     * `exit` : Exits the app.
 
@@ -56,16 +56,13 @@ applications.
 **information_source: Notes about the command format:**<br>
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
-  e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
+  e.g. in `add c/COMPANY`, `COMPANY` is a parameter which can be used as `add n/Google`.
 
 * Items in square brackets are optional.<br>
-  e.g. `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
-
-* Items with `…` after them can be used multiple times including zero times.<br>
-  e.g. `[t/TAG]…` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
+  e.g. `c/COMPANY [i/INDUSTRY]` can be used as `add n/Google i/Technology` or as `n/Google`.
 
 * Parameters can be in any order.<br>
-  e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
+  e.g. if the command specifies `n/COMPANY r/ROLE`, `r/ROLE n/COMPANY` is also acceptable.
 
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be
   ignored.<br>
@@ -80,27 +77,27 @@ applications.
 
 ### Adding an application : `add`
 
-Adds an application to a company to the list.
+Adds an application to the job application list.
 
-**Format:** `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS`
+**Format:** `add c/COMPANY r/ROLE [d/DEADLINE] [s/STATUS] [i/INDUSTRY]`
 
 * Users must input a company `NAME`
-* Details of the company such as `PHONE_NUMBER`, `EMAIL` and `ADDRESS` are optional
+* Details of the company such as `DEADLINE`, `STATUS` and `INDUSTRY` are optional
 
 **Successful command:**
-print “Application to (Company name) has been added.”
+print “New job added: COMPANY; Role: ROLE; Status: STATUS; Deadline: DEADLINE; Industry: INDUSTRY"
 
 **Failed command:**
-print “Error: ” and error message for:
-
-* `NAME` is not in the command: “Name of company was not included in the command.”
+print "Invalid command format!
+add: Adds a job to the application book. 
+Parameters: c/COMPANY r/ROLE [Optional] d/DEADLINE s/STATUS i/INDUSTRY"
 
 **Examples:**
 
-* `add n/Microsoft p/98765432 e/microsoft@gmail.com a/182 Cecil St, #13-01, Singapore 069547`
-  Adds a company called microsoft, adds their phone number, email and address
-* `add n/The Coca-Cola Company e/cocacola@yahoo.com`
-  Adds a company called The Coca-Cola Company, adds their email
+* `add c/Google r/Software Engineer d/Dec 31 2030 1200 s/Approved, i/Technology`
+  Adds an application to a company Google, the role, deadline, status and industry of the job application
+* `add n/The Coca-Cola Company r/Quality Assurance Engineer`
+  Adds an application to a company The Coca-Cola Company and the role applied.
 
 **UI mockup:**
 ![AddCommand](images/user-guide/AddCommand.png)
@@ -117,13 +114,15 @@ Deletes the specified application from the list.
 * The `INDEX` must be a _positive integer_ 1, 2, 3, …
 
 **Successful command:**
-print “Application to (Company name) has been deleted.”
+print “Deleted Job: COMPANY; Role: ROLE; Status: STATUS; Deadline: DEADLINE; Industry: INDUSTRY”
 
 **Failed command:**
-print “Error: ” and error message for:
+print "Invalid command format!
+delete: Deletes the job identified by the index number used in the displayed job list.
+Parameters: INDEX (must be a positive integer)
+Example: delete 1"
 
-* `INDEX` is not a positive integer: “Index must be a positive integer.”
-* `INDEX` is larger than list size: “No such company at index (`INDEX`).”
+* `INDEX` is larger than list size: “The job index provided is invalid”
 
 **Examples:**
 
