@@ -1,5 +1,6 @@
 package seedu.application.testutil;
 
+import static seedu.application.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.application.logic.parser.CliSyntax.PREFIX_COMPANY;
 import static seedu.application.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.application.logic.parser.CliSyntax.PREFIX_INDUSTRY;
@@ -49,6 +50,8 @@ public class JobUtil {
             .ifPresent(jobType -> sb.append(PREFIX_JOB_TYPE).append(jobType.jobType).append(" "));
         descriptor.getIndustry()
                 .ifPresent(industry -> sb.append(PREFIX_INDUSTRY).append(industry.industry).append(" "));
+        descriptor.getAddress()
+            .ifPresent(address -> sb.append(PREFIX_ADDRESS).append(address.address).append(" "));
         return sb.toString();
     }
 }

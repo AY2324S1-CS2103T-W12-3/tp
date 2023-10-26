@@ -1,12 +1,7 @@
 package seedu.application.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.application.logic.parser.CliSyntax.PREFIX_COMPANY;
-import static seedu.application.logic.parser.CliSyntax.PREFIX_DEADLINE;
-import static seedu.application.logic.parser.CliSyntax.PREFIX_INDUSTRY;
-import static seedu.application.logic.parser.CliSyntax.PREFIX_JOB_TYPE;
-import static seedu.application.logic.parser.CliSyntax.PREFIX_ROLE;
-import static seedu.application.logic.parser.CliSyntax.PREFIX_STATUS;
+import static seedu.application.logic.parser.CliSyntax.*;
 
 import seedu.application.commons.util.ToStringBuilder;
 import seedu.application.logic.Messages;
@@ -29,7 +24,8 @@ public class AddCommand extends Command {
         + PREFIX_STATUS + "STATUS "
         + PREFIX_DEADLINE + "DEADLINE "
         + PREFIX_JOB_TYPE + "JOB TYPE "
-        + PREFIX_INDUSTRY + "INDUSTRY\n\n"
+        + PREFIX_INDUSTRY + "INDUSTRY"
+        + PREFIX_ADDRESS + "ADDRESS\n\n"
         + "Example: \n"
         + COMMAND_WORD + " "
         + PREFIX_COMPANY + "Google "
@@ -40,7 +36,8 @@ public class AddCommand extends Command {
         + PREFIX_STATUS + "PENDING "
         + PREFIX_DEADLINE + "Dec 31 2030 1200 "
         + PREFIX_JOB_TYPE + "INTERNSHIP"
-        + PREFIX_INDUSTRY + "Technology\n";
+        + PREFIX_INDUSTRY + "Technology"
+        + PREFIX_ADDRESS + "70 Pasir Panjang Road, Singapore 117371\n\n";
 
     public static final String MESSAGE_SUCCESS = "New job added: %1$s";
     public static final String MESSAGE_DUPLICATE_JOB = "This job already exists in the application book";

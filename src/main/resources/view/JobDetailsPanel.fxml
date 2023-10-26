@@ -42,6 +42,10 @@
                    GridPane.valignment="TOP"/>
             <Label fx:id="jobType" styleClass="cell_small_label" text="\$jobType" GridPane.columnIndex="1"
                    GridPane.rowIndex="4"/>
+            <Label styleClass="cell_small_label" text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="5"
+                   GridPane.valignment="TOP"/>
+            <Label fx:id="address" styleClass="cell_small_label" text="\$address" GridPane.columnIndex="1"
+                   GridPane.rowIndex="5"/>
         </GridPane>
     </VBox>
 

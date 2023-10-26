@@ -168,7 +168,8 @@ public class LogicManagerTest {
 
         // Triggers the saveApplicationBook method by executing an add command
         String addCommand = AddCommand.COMMAND_WORD + ROLE_DESC_CHEF + COMPANY_DESC_CHEF
-            + DEADLINE_DESC_CHEF + STATUS_DESC_CHEF + JOB_TYPE_DESC_CHEF + INDUSTRY_DESC_CHEF;
+            + DEADLINE_DESC_CHEF + STATUS_DESC_CHEF + JOB_TYPE_DESC_CHEF + INDUSTRY_DESC_CHEF
+            + ADDRESS_DESC_CHEF;
         Job expectedJob = new JobBuilder(CHEF).build();
         ModelManager expectedModel = new ModelManager();
         expectedModel.addJob(expectedJob);

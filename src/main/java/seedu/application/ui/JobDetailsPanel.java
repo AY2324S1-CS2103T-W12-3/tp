@@ -38,6 +38,8 @@ public class JobDetailsPanel extends UiPart<Region> {
     @FXML
     private Label industry;
     @FXML
+    private Label address;
+    @FXML
     private Label interviewTitle;
 
     /**
@@ -52,6 +54,7 @@ public class JobDetailsPanel extends UiPart<Region> {
         deadline.setText(job.getDeadline().deadline);
         jobType.setText(job.getJobType().jobType);
         industry.setText(job.getIndustry().industry);
+        address.setText(job.getAddress().address);
         interviewTitle.setText("Interviews: ");
         //TODO Initialise Interview List here
     }

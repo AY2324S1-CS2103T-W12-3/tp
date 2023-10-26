@@ -7,7 +7,8 @@
       "status": "TO_BE_SUBMITTED",
       "deadline": "TO_ADD_DEADLINE",
       "jobType": "TO_ADD_JOB_TYPE",
-      "industry": "TO_ADD_INDUSTRY"
+      "industry": "TO_ADD_INDUSTRY",
+      "address": "TO_ADD_ADDRESS"
     },
     {
       "role": "Teacher",
@@ -15,7 +16,8 @@
       "status": "TO_BE_SUBMITTED",
       "deadline": "TO_ADD_DEADLINE",
       "jobType": "TO_ADD_JOB_TYPE",
-      "industry": "TO_ADD_INDUSTRY"
+      "industry": "TO_ADD_INDUSTRY",
+      "address": "TO_ADD_ADDRESS"
     },
     {
       "role": "Waiter",
@@ -23,7 +25,8 @@
       "status": "TO_BE_SUBMITTED",
       "deadline": "TO_ADD_DEADLINE",
       "jobType": "TO_ADD_JOB_TYPE",
-      "industry": "TO_ADD_INDUSTRY"
+      "industry": "TO_ADD_INDUSTRY",
+      "address": "TO_ADD_ADDRESS"
     },
     {
       "role": "Pilot",
@@ -31,7 +34,8 @@
       "status": "TO_BE_SUBMITTED",
       "deadline": "TO_ADD_DEADLINE",
       "jobType": "TO_ADD_JOB_TYPE",
-      "industry": "TO_ADD_INDUSTRY"
+      "industry": "TO_ADD_INDUSTRY",
+      "address": "TO_ADD_ADDRESS"
     },
     {
       "role": "Police Officer",
@@ -39,7 +43,8 @@
       "status": "TO_BE_SUBMITTED",
       "deadline": "TO_ADD_DEADLINE",
       "jobType": "TO_ADD_JOB_TYPE",
-      "industry": "TO_ADD_INDUSTRY"
+      "industry": "TO_ADD_INDUSTRY",
+      "address": "TO_ADD_ADDRESS"
     },
     {
       "role": "Fruit Seller",
@@ -47,7 +52,8 @@
       "status": "TO_BE_SUBMITTED",
       "deadline": "TO_ADD_DEADLINE",
       "jobType": "TO_ADD_JOB_TYPE",
-      "industry": "TO_ADD_INDUSTRY"
+      "industry": "TO_ADD_INDUSTRY",
+      "address": "TO_ADD_ADDRESS"
     },
     {
       "role": "Grass Cutter",
@@ -55,7 +61,8 @@
       "status": "TO_BE_SUBMITTED",
       "deadline": "TO_ADD_DEADLINE",
       "jobType": "TO_ADD_JOB_TYPE",
-      "industry": "TO_ADD_INDUSTRY"
+      "industry": "TO_ADD_INDUSTRY",
+      "address": "TO_ADD_ADDRESS"
     }
   ]
 }

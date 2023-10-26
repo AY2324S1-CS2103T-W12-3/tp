@@ -29,6 +29,7 @@ public class EditJobDescriptorBuilder {
         descriptor.setStatus(job.getStatus());
         descriptor.setJobType(job.getJobType());
         descriptor.setIndustry(job.getIndustry());
+        descriptor.setAddress(job.getAddress());
     }
 
     /**
@@ -76,6 +77,14 @@ public class EditJobDescriptorBuilder {
      */
     public EditJobDescriptorBuilder withIndustry(String industry) {
         descriptor.setIndustry(new Industry(industry));
+        return this;
+    }
+
+    /**
+     * Sets the {@code Address} of the {@code EditJobDescriptor} that we are building.
+     */
+    public EditJobDescriptorBuilder withAddress(String address) {
+        descriptor.setAddress(new Address(address));
         return this;
     }
 

@@ -1,6 +1,7 @@
 package seedu.application.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.application.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.application.logic.parser.CliSyntax.PREFIX_COMPANY;
 import static seedu.application.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.application.logic.parser.CliSyntax.PREFIX_INDUSTRY;
@@ -18,6 +19,7 @@ import seedu.application.commons.util.ToStringBuilder;
 import seedu.application.logic.Messages;
 import seedu.application.logic.commands.exceptions.CommandException;
 import seedu.application.model.Model;
+import seedu.application.model.job.Address;
 import seedu.application.model.job.Company;
 import seedu.application.model.job.Deadline;
 import seedu.application.model.job.Industry;
@@ -44,13 +46,15 @@ public class EditCommand extends Command {
         + "[" + PREFIX_STATUS + "STATUS] "
         + "[" + PREFIX_JOB_TYPE + "JOB TYPE] "
         + "[" + PREFIX_INDUSTRY + "INDUSTRY] "
+        + "[" + PREFIX_ADDRESS + "ADDRESS] \n"
         + "Example: " + COMMAND_WORD + " 1 "
         + PREFIX_ROLE + "Software Engineer "
         + PREFIX_COMPANY + "Google"
         + PREFIX_DEADLINE + "Dec 31 2023 1200"
         + PREFIX_STATUS + "Pending "
         + PREFIX_JOB_TYPE + "INTERNSHIP"
-        + PREFIX_INDUSTRY + "Technology";
+        + PREFIX_INDUSTRY + "Technology"
+        + PREFIX_ADDRESS + "70 Pasir Panjang Road, Singapore 117371";
 
     public static final String MESSAGE_EDIT_JOB_SUCCESS = "Edited Job: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided. \n"
@@ -59,7 +63,8 @@ public class EditCommand extends Command {
         + PREFIX_STATUS + " for Status\n"
         + PREFIX_DEADLINE + " for Deadline\n"
         + PREFIX_JOB_TYPE + " for Job Type\n"
-        + PREFIX_INDUSTRY + " for Industry\n";
+        + PREFIX_INDUSTRY + " for Industry\n"
+        + PREFIX_ADDRESS + " for Address\n";
     public static final String MESSAGE_DUPLICATE_JOB = "This job already exists in the application book.";
 
     private final Index index;
@@ -111,8 +116,10 @@ public class EditCommand extends Command {
         Status updatedStatus = editJobDescriptor.getStatus().orElse(jobToEdit.getStatus());
         JobType updatedJobType = editJobDescriptor.getJobType().orElse(jobToEdit.getJobType());
         Industry updatedIndustry = editJobDescriptor.getIndustry().orElse(jobToEdit.getIndustry());
+        Address updatedAddress = editJobDescriptor.getAddress().orElse(jobToEdit.getAddress());
 
-        return new Job(updatedRole, updatedCompany, updatedDeadline, updatedStatus, updatedJobType, updatedIndustry);
+        return new Job(updatedRole, updatedCompany, updatedDeadline, updatedStatus,
+                updatedJobType, updatedIndustry, updatedAddress);
     }
 
     @Override
@@ -150,6 +157,7 @@ public class EditCommand extends Command {
         private Status status;
         private JobType jobType;
         private Industry industry;
+        private Address address;
 
         public EditJobDescriptor() {
         }
@@ -164,13 +172,14 @@ public class EditCommand extends Command {
             setStatus(toCopy.status);
             setJobType(toCopy.jobType);
             setIndustry(toCopy.industry);
+            setAddress(toCopy.address);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(company, role, deadline, status, jobType, industry);
+            return CollectionUtil.isAnyNonNull(company, role, deadline, status, jobType, industry, address);
         }
 
         public void setCompany(Company company) {
@@ -221,6 +230,14 @@ public class EditCommand extends Command {
             return Optional.ofNullable(industry);
         }
 
+        public void setAddress(Address address) {
+            this.address = address;
+        }
+
+        public Optional<Address> getAddress() {
+            return Optional.ofNullable(address);
+        }
+
         @Override
         public boolean equals(Object other) {
             if (other == this) {
@@ -238,7 +255,8 @@ public class EditCommand extends Command {
                 && Objects.equals(deadline, otherEditJobDescriptor.deadline)
                 && Objects.equals(status, otherEditJobDescriptor.status)
                 && Objects.equals(jobType, otherEditJobDescriptor.jobType)
-                && Objects.equals(industry, otherEditJobDescriptor.industry);
+                && Objects.equals(industry, otherEditJobDescriptor.industry)
+                && Objects.equals(address, otherEditJobDescriptor.address);
         }
 
         @Override
@@ -250,6 +268,7 @@ public class EditCommand extends Command {
                 .add("status", status)
                 .add("jobType", jobType)
                 .add("industry", industry)
+                .add("address", address)
                 .toString();
         }
     }

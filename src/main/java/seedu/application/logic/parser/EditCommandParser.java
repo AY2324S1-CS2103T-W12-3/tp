@@ -2,6 +2,7 @@ package seedu.application.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.application.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.application.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.application.logic.parser.CliSyntax.PREFIX_COMPANY;
 import static seedu.application.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.application.logic.parser.CliSyntax.PREFIX_INDUSTRY;
@@ -28,7 +29,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
             ArgumentTokenizer.tokenize(args, PREFIX_ROLE, PREFIX_COMPANY, PREFIX_DEADLINE, PREFIX_STATUS,
-                    PREFIX_JOB_TYPE, PREFIX_INDUSTRY);
+                    PREFIX_JOB_TYPE, PREFIX_INDUSTRY, PREFIX_ADDRESS);
 
         Index index;
 
@@ -39,7 +40,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         }
 
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_ROLE, PREFIX_COMPANY, PREFIX_DEADLINE, PREFIX_STATUS,
-                PREFIX_JOB_TYPE, PREFIX_INDUSTRY);
+                PREFIX_JOB_TYPE, PREFIX_INDUSTRY, PREFIX_ADDRESS);
 
         EditCommand.EditJobDescriptor editJobDescriptor = new EditCommand.EditJobDescriptor();
 
@@ -60,6 +61,9 @@ public class EditCommandParser implements Parser<EditCommand> {
         }
         if (argMultimap.getValue(PREFIX_INDUSTRY).isPresent()) {
             editJobDescriptor.setIndustry(ParserUtil.parseIndustry(argMultimap.getValue(PREFIX_INDUSTRY).get()));
+        }
+        if (argMultimap.getValue(PREFIX_ADDRESS).isPresent()) {
+            editJobDescriptor.setAddress(ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get()));
         }
 
         if (!editJobDescriptor.isAnyFieldEdited()) {

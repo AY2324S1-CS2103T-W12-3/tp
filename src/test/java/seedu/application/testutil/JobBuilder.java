@@ -13,6 +13,7 @@ public class JobBuilder {
     public static final String DEFAULT_JOBTYPE = JobType.TO_ADD_JOB_TYPE;
     public static final String DEFAULT_STATUS = Status.IN_PROGRESS;
     public static final String DEFAULT_INDUSTRY = Industry.TO_ADD_INDUSTRY;
+    public static final String DEFAULT_ADDRESS = Address.TO_ADD_ADDRESS;
 
     private Role role;
     private Company company;
@@ -20,6 +21,7 @@ public class JobBuilder {
     private Deadline deadline;
     private JobType jobType;
     private Industry industry;
+    private Address address;
 
     /**
      * Creates a {@code JobBuilder} with the default details.
@@ -31,6 +33,7 @@ public class JobBuilder {
         jobType = new JobType(DEFAULT_JOBTYPE);
         status = new Status(DEFAULT_STATUS);
         industry = new Industry(DEFAULT_INDUSTRY);
+        address = new Address(DEFAULT_ADDRESS);
     }
 
     /**
@@ -43,6 +46,7 @@ public class JobBuilder {
         jobType = jobToCopy.getJobType();
         status = jobToCopy.getStatus();
         industry = jobToCopy.getIndustry();
+        address = jobToCopy.getAddress();
     }
 
     /**
@@ -93,9 +97,17 @@ public class JobBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Address} of the {@code Job} that we are building.
+     */
+    public JobBuilder withAddress(String address) {
+        this.address = new Address(address);
+        return this;
+    }
+
 
     public Job build() {
-        return new Job(role, company, deadline, status, jobType, industry);
+        return new Job(role, company, deadline, status, jobType, industry, address);
     }
 
 }

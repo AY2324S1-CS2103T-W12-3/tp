@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.application.logic.commands.CommandTestUtil.VALID_ADDRESS_CLEANER;
 import static seedu.application.logic.commands.CommandTestUtil.VALID_COMPANY_CHEF;
 import static seedu.application.logic.commands.CommandTestUtil.VALID_COMPANY_CLEANER;
 import static seedu.application.logic.commands.CommandTestUtil.VALID_DEADLINE_CLEANER;
@@ -88,6 +89,10 @@ public class JobTest {
         // different industry -> returns false
         editedChef = new JobBuilder(CHEF).withIndustry(VALID_INDUSTRY_CLEANER).build();
         assertNotEquals(CHEF, editedChef);
+
+        // different address -> returns false
+        editedChef = new JobBuilder(CHEF).withAddress(VALID_ADDRESS_CLEANER).build();
+        assertNotEquals(CHEF, editedChef);
     }
 
     @Test
@@ -99,6 +104,7 @@ public class JobTest {
                 + ", status=" + CHEF.getStatus()
                 + ", jobType=" + CHEF.getJobType()
                 + ", industry=" + CHEF.getIndustry()
+                + ", address=" + CHEF.getAddress()
                 + "}";
         assertEquals(expected, CHEF.toString());
     }

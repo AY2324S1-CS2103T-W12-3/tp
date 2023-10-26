@@ -6,7 +6,8 @@
       "status": "TO_BE_SUBMITTED",
       "deadline": "TO_ADD_DEADLINE",
       "jobType": "TO_ADD_JOB_TYPE",
-      "industry": "TO_ADD_INDUSTRY"
+      "industry": "TO_ADD_INDUSTRY",
+      "address": "TO_ADD_ADDRESS"
     },
     {
       "role": "Software Engineer",
@@ -14,7 +15,8 @@
       "status": "TO_BE_SUBMITTED",
       "deadline": "TO_ADD_DEADLINE",
       "jobType": "TO_ADD_JOB_TYPE",
-      "industry": "TO_ADD_INDUSTRY"
+      "industry": "TO_ADD_INDUSTRY",
+      "address": "TO_ADD_ADDRESS"
     }
   ]
 }

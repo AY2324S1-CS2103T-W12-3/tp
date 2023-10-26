@@ -2,6 +2,7 @@ package seedu.application.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.application.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.application.logic.parser.CliSyntax.PREFIX_COMPANY;
 import static seedu.application.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.application.logic.parser.CliSyntax.PREFIX_INDUSTRY;
@@ -40,6 +41,8 @@ public class CommandTestUtil {
     public static final String VALID_JOB_TYPE_CLEANER = "PART_TIME";
     public static final String VALID_INDUSTRY_CHEF = "Culinary";
     public static final String VALID_INDUSTRY_CLEANER = "Cleaning";
+    public static final String VALID_ADDRESS_CHEF = "123, Jurong West Ave 6, #08-111";
+    public static final String VALID_ADDRESS_CLEANER = "311, Clementi Ave 2, #02-25";
     public static final String ROLE_DESC_CHEF = " " + PREFIX_ROLE + VALID_ROLE_CHEF;
     public static final String ROLE_DESC_CLEANER = " " + PREFIX_ROLE + VALID_ROLE_CLEANER;
     public static final String COMPANY_DESC_CHEF = " " + PREFIX_COMPANY + VALID_COMPANY_CHEF;
@@ -52,6 +55,8 @@ public class CommandTestUtil {
     public static final String JOB_TYPE_DESC_CLEANER = " " + PREFIX_JOB_TYPE + VALID_JOB_TYPE_CLEANER;
     public static final String INDUSTRY_DESC_CHEF = " " + PREFIX_INDUSTRY + VALID_INDUSTRY_CHEF;
     public static final String INDUSTRY_DESC_CLEANER = " " + PREFIX_INDUSTRY + VALID_INDUSTRY_CLEANER;
+    public static final String ADDRESS_DESC_CHEF = " " + PREFIX_ADDRESS + VALID_ADDRESS_CHEF;
+    public static final String ADDRESS_DESC_CLEANER = " " + PREFIX_ADDRESS + VALID_ADDRESS_CLEANER;
     public static final String INVALID_ROLE_DESC = " " + PREFIX_ROLE + "&"; // '&' not allowed in roles
     public static final String INVALID_COMPANY_DESC = " " + PREFIX_COMPANY + "    "; // company cannot be blank
     public static final String INVALID_DEADLINE_DESC =
@@ -61,6 +66,7 @@ public class CommandTestUtil {
             " " + PREFIX_JOB_TYPE + "OTHER"; // job type must be selected from the list of options
     public static final String INVALID_INDUSTRY_DESC =
             " " + PREFIX_INDUSTRY + "    "; //industry cannot be blank
+    public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // address cannot be blank
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
 

@@ -5,6 +5,7 @@ import static java.util.Objects.requireNonNull;
 import seedu.application.commons.core.index.Index;
 import seedu.application.commons.util.StringUtil;
 import seedu.application.logic.parser.exceptions.ParseException;
+import seedu.application.model.job.Address;
 import seedu.application.model.job.Company;
 import seedu.application.model.job.Deadline;
 import seedu.application.model.job.Industry;
@@ -121,6 +122,21 @@ public class ParserUtil {
             throw new ParseException(Industry.MESSAGE_CONSTRAINTS);
         }
         return new Industry(trimmedIndustry);
+    }
+
+    /**
+     * Parses a {@code String Address} into a {@code Address}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code address} is invalid.
+     */
+    public static Address parseAddress(String address) throws ParseException {
+        requireNonNull(address);
+        String trimmedAddress = address.trim();
+        if (!Address.isValidAddress(trimmedAddress)) {
+            throw new ParseException(Address.MESSAGE_CONSTRAINTS);
+        }
+        return new Address(trimmedAddress);
     }
 
 }

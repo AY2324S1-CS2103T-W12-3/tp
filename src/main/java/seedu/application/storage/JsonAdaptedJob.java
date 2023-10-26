@@ -19,6 +19,7 @@ class JsonAdaptedJob {
     private final String deadline;
     private final String jobType;
     private final String industry;
+    private final String address;
 
     /**
      * Constructs a {@code JsonAdaptedJob} with the given job details.
@@ -26,13 +27,15 @@ class JsonAdaptedJob {
     @JsonCreator
     public JsonAdaptedJob(@JsonProperty("role") String role, @JsonProperty("company") String company,
                           @JsonProperty("status") String status, @JsonProperty("deadline") String deadline,
-                          @JsonProperty("jobType") String jobType, @JsonProperty("industry") String industry) {
+                          @JsonProperty("jobType") String jobType, @JsonProperty("industry") String industry,
+                          @JsonProperty("address") String address) {
         this.role = role;
         this.company = company;
         this.status = status;
         this.deadline = deadline;
         this.jobType = jobType;
         this.industry = industry;
+        this.address = address;
     }
 
     /**
@@ -45,6 +48,7 @@ class JsonAdaptedJob {
         deadline = source.getDeadline().deadline;
         jobType = source.getJobType().jobType;
         industry = source.getIndustry().industry;
+        address = source.getAddress().address;
     }
 
     /**
@@ -107,7 +111,17 @@ class JsonAdaptedJob {
         }
         final Industry modelIndustry = new Industry(industry);
 
-        return new Job(modelRole, modelCompany, modelDeadline, modelStatus, modelJobType, modelIndustry);
+        if (address == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Address.class.getSimpleName()));
+        }
+        if (!Address.isValidAddress(address)) {
+            throw new IllegalValueException(Address.MESSAGE_CONSTRAINTS);
+        }
+        final Address modelAddress = new Address(address);
+
+        return new Job(modelRole, modelCompany, modelDeadline, modelStatus,
+                modelJobType, modelIndustry, modelAddress);
     }
 
 }

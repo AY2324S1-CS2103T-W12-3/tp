@@ -56,6 +56,10 @@ public class EditJobDescriptorTest {
         // different industry -> returns false
         editedChef = new EditJobDescriptorBuilder(DESC_CHEF).withIndustry("Baking").build();
         assertNotEquals(DESC_CHEF, editedChef);
+
+        // different address -> returns false
+        editedChef = new EditJobDescriptorBuilder(DESC_CHEF).withAddress("123, Jurong West Ave 6, #08-111").build();
+        assertNotEquals(DESC_CHEF, editedChef);
     }
 
     @Test
@@ -67,7 +71,8 @@ public class EditJobDescriptorTest {
             + editJobDescriptor.getDeadline().orElse(null) + ", status="
             + editJobDescriptor.getStatus().orElse(null) + ", jobType="
             + editJobDescriptor.getJobType().orElse(null) + ", industry="
-            + editJobDescriptor.getIndustry().orElse(null) + "}";
+            + editJobDescriptor.getIndustry().orElse(null) + ", address="
+            + editJobDescriptor.getAddress().orElse(null) + "}";
         assertEquals(expected, editJobDescriptor.toString());
     }
 }
