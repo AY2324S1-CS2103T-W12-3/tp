@@ -3,7 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.StackPane?>
-<StackPane style="-fx-paddingL 0 0 0 20px" styleClass="stack-pane" xmlns="http://javafx.com/javafx/17"
+<StackPane style="-fx-padding: 0 0 0 20px" styleClass="stack-pane" xmlns="http://javafx.com/javafx/17"
            xmlns:fx="http://javafx.com/fxml/1">
     <TextField fx:id="commandTextField" onAction="#handleCommandEntered" prefHeight="70.0" prefWidth="160.0"
                promptText="Enter command here...">

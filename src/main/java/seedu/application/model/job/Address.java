@@ -3,6 +3,11 @@ package seedu.application.model.job;
 import static java.util.Objects.requireNonNull;
 
 import seedu.application.commons.util.AppUtil;
+
+/**
+ * Represents a Job's address in the internship diary.
+ * Guarantees: immutable; is valid as declared in {@link #isValidAddress(String)}
+ */
 public class Address {
     public static final String MESSAGE_CONSTRAINTS =
             "Address descriptions should adhere to the following constraints:\n"
@@ -19,6 +24,11 @@ public class Address {
 
     public final String address;
 
+    /**
+     * Constructs a {@code Address}.
+     *
+     * @param address A valid address.
+     */
     public Address(String address) {
         requireNonNull(address);
         AppUtil.checkArgument(isValidAddress(address), MESSAGE_CONSTRAINTS);
