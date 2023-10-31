@@ -257,7 +257,7 @@ Exits the program.
 
 | Action     | Format                                                                                   |
 |------------|------------------------------------------------------------------------------------------|
-| **Add**    | `add [c/COMPANY] [r/ROLE] [d/DEADLINE] [s/STATUS] [i/INDUSTRY] [t/JOB_TYPE]`             |
+| **Add**    | `add c/COMPANY r/ROLE d/DEADLINE s/STATUS i/INDUSTRY t/JOB_TYPE`                         |
 | **Edit**   | `edit INDEX [c/COMPANY] [r/ROLE] [d/DEADLINE] [s/STATUS] [i/INDUSTRY] [t/JOB_TYPE]`      |
 | **Delete** | `delete INDEX`                                                                           |
 | **List**   | `list`                                                                                   |

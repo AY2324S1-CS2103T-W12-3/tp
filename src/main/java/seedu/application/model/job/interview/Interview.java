@@ -52,10 +52,10 @@ public class Interview {
             return false;
         }
 
-        Interview otherInterview = (Interview) other;
-        return interviewType.equals(otherInterview.interviewType)
-            && interviewDateTime.equals(otherInterview.interviewDateTime)
-            && interviewAddress.equals(otherInterview.interviewAddress);
+        Interview interview = (Interview) other;
+        return interview.getInterviewType().equals(getInterviewType())
+                && interview.getInterviewDateTime().equals(getInterviewDateTime())
+                && interview.getInterviewAddress().equals(getInterviewAddress());
     }
 
     @Override

@@ -1,15 +1,10 @@
 package seedu.application.storage;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.application.commons.exceptions.IllegalValueException;
 import seedu.application.model.job.*;
-import seedu.application.model.job.interview.Interview;
 
 /**
  * Jackson-friendly version of {@link Job}.
@@ -25,23 +20,19 @@ class JsonAdaptedJob {
     private final String jobType;
     private final String industry;
 
-    private final List<JsonAdaptedInterview> interviews;
-
     /**
      * Constructs a {@code JsonAdaptedJob} with the given job details.
      */
     @JsonCreator
     public JsonAdaptedJob(@JsonProperty("role") String role, @JsonProperty("company") String company,
                           @JsonProperty("status") String status, @JsonProperty("deadline") String deadline,
-                          @JsonProperty("jobType") String jobType, @JsonProperty("industry") String industry,
-                          @JsonProperty("interviews") List<JsonAdaptedInterview> interviews) {
+                          @JsonProperty("jobType") String jobType, @JsonProperty("industry") String industry) {
         this.role = role;
         this.company = company;
         this.status = status;
         this.deadline = deadline;
         this.jobType = jobType;
         this.industry = industry;
-        this.interviews = interviews;
     }
 
     /**
@@ -54,9 +45,6 @@ class JsonAdaptedJob {
         deadline = source.getDeadline().deadline;
         jobType = source.getJobType().jobType;
         industry = source.getIndustry().industry;
-        interviews = source.getInterviews().stream()
-            .map(JsonAdaptedInterview::new)
-            .collect(Collectors.toList());
     }
 
     /**
@@ -119,14 +107,7 @@ class JsonAdaptedJob {
         }
         final Industry modelIndustry = new Industry(industry);
 
-        List<Interview> modelInterviews = new ArrayList<>();
-        for (JsonAdaptedInterview interview : interviews) {
-            Interview toModelType = interview.toModelType();
-            modelInterviews.add(toModelType);
-        }
-
-        return new Job(modelRole, modelCompany, modelDeadline, modelStatus,
-                modelJobType, modelIndustry, modelInterviews);
+        return new Job(modelRole, modelCompany, modelDeadline, modelStatus, modelJobType, modelIndustry);
     }
 
 }

@@ -1,12 +1,9 @@
 package seedu.application.model.job;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 import seedu.application.commons.util.CollectionUtil;
 import seedu.application.commons.util.ToStringBuilder;
-import seedu.application.model.job.interview.Interview;
 
 /**
  * Represents a Job in the application book.
@@ -22,8 +19,6 @@ public class Job {
     private final JobType jobType;
     private final Industry industry;
 
-    private List<Interview> interviews = new ArrayList<>();
-
     /**
      * Not all fields are compulsory
      */
@@ -36,21 +31,6 @@ public class Job {
         this.status = status;
         this.jobType = jobType;
         this.industry = industry;
-    }
-
-    /**
-     * Not all fields are compulsory
-     */
-    public Job(Role role, Company company, Deadline deadline, Status status, JobType jobType,
-               Industry industry, List<Interview> interviews) {
-        CollectionUtil.requireAllNonNull(role, company);
-        this.role = role;
-        this.company = company;
-        this.deadline = deadline;
-        this.status = status;
-        this.jobType = jobType;
-        this.industry = industry;
-        this.interviews = interviews;
     }
 
     public Role getRole() {
@@ -75,30 +55,6 @@ public class Job {
 
     public Industry getIndustry() {
         return industry;
-    }
-
-    public List<Interview> getInterviews() {
-        return interviews;
-    }
-
-    /**
-     * Adds an interview to the list of interviews for a job.
-     * The interview must not already exist for the job.
-     */
-    public void addInterview(Interview interview) {
-        interviews.add(interview);
-    }
-
-    /**
-     * Returns true if an interview with the same identity as {@code interview} exists for the job.
-     */
-    public boolean hasInterview(Interview interview) {
-        for (Interview i : interviews) {
-            if (interview.equals(i)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     /**
